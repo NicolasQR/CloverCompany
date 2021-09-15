@@ -3,8 +3,6 @@ package ui;
 
 import java.io.IOException;
 
-=======
->>>>>>> 843e3a6b99cc6874bea5aa9212de89c2848889a6
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
