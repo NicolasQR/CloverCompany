@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="paneLogin" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="383.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="paneLogin" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="383.0" prefWidth="660.0" style="-fx-background-color: #228B22;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <PasswordField fx:id="passwordField" layoutX="173.0" layoutY="232.0" prefHeight="26.0" prefWidth="168.0" />
       <Button layoutX="361.0" layoutY="232.0" mnemonicParsing="false" onAction="#continueLogin" prefHeight="26.0" prefWidth="112.0" text="Continuar" />
