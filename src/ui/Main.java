@@ -26,10 +26,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
-
-		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
 		fxmlLoader.setController(loginGUI);
 
 		Parent root = fxmlLoader.load();
@@ -40,7 +37,6 @@ public class Main extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 
-		
 	}
 
 }
