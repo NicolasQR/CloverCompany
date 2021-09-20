@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
-public class MainPageController {
+public class MainPageGUI {
 
 	@FXML
     private Button userInfo;
@@ -27,6 +27,17 @@ public class MainPageController {
 
     @FXML
     void loadContents(ActionEvent event) {
+    	
+    	if(event.getSource() == addClient) {
+    		
+    	}
+    	if(event.getSource() == searchRegion) {
+    		
+    	}
+    	
+    	if(event.getSource() == searchId) {
+    		
+    	}
     	
     }
 
