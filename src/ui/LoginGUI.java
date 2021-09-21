@@ -35,7 +35,7 @@ public class LoginGUI {
 	@FXML
     public void continueLogin(ActionEvent event) throws IOException {
 		
-		FXMLLoader open = new FXMLLoader(getClass().getResource("Gestion-client.fxml"));
+		FXMLLoader open = new FXMLLoader(getClass().getResource("MainPage.fxml"));
     	open.setController(menuGUI);
     	Parent root = open.load();
     	
@@ -47,6 +47,7 @@ public class LoginGUI {
     	stage.initModality(Modality.APPLICATION_MODAL);
     	stage.setScene(scene);
     	stage.setTitle("Gestionar clientes");
+    	stage.show();
     }
 	
 	@FXML
