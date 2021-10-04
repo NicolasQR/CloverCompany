@@ -21,9 +21,9 @@
                   <Insets top="30.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="86.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="106.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/icons/4-clover-png-image.png" />
+                        <Image url="@../../resources/icons/TrébolB.png" />
                      </image>
                   </ImageView>
                </graphic>
