@@ -14,7 +14,7 @@ public class Main extends Application {
 
 	private LoginGUI loginGUI;
 	
-	public Main() throws IOException {
+	public Main() throws IOException, ClassNotFoundException {
 		loginGUI = new LoginGUI();
 	}
 	
