@@ -4,15 +4,16 @@ import java.util.*;
 
 public class Ticket {
 
-	Collection<Payment> payments;
+	ArrayList<Payment> payments;
 	private double price;
-	private boolean paid;
 	private double debit;
 	private String ID;
 
-	public Ticket() {
-		// TODO - implement Ticket.Ticket
-		throw new UnsupportedOperationException();
+	public Ticket(String id, double p, double initialFee) {
+		payments = new ArrayList<Payment>();
+		ID = id;
+		price = p;
+		debit = p - initialFee;
 	}
 
 	public double getPrice() {
@@ -28,30 +29,46 @@ public class Ticket {
 	}
 
 	public boolean getPaid() {
-		return this.paid;
+		if(debit == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-
-	/**
-	 * 
-	 * @param paid
-	 */
-	public void setPaid(boolean paid) {
-		this.paid = paid;
-	}
-
+	
 	/**
 	 * 
 	 * @param date
 	 * @param value
 	 */
-	public void addPayment(Date date, double value) {
-		// TODO - implement Ticket.addPayment
-		throw new UnsupportedOperationException();
+	public boolean addPayment(Date date, double value) {
+		Payment payment = new Payment(date, value);
+		if(payments.size() == 0) {
+			payments.add(payment);
+			return true;
+		} else {
+			return insertSortPayment(payment);
+		}
+	}
+	
+	//Check if it work
+	private boolean insertSortPayment(Payment p) {   //Insert payment in date order of lower to higher
+		boolean added = false;
+		for(int i = 0; i < payments.size(); i++) {
+			if(p.getDate().before(payments.get(i).getDate())) {
+				payments.add(i, payments.get(i));
+				payments.set(i, p);
+				added = true;
+			} else if(p.getDate().equals(payments.get(i).getDate())){
+				payments.add(i, p);
+			}
+		}
+		
+		return added;
 	}
 
 	public ArrayList<Payment> getPayments() {
-		// TODO - implement Ticket.getPayments
-		throw new UnsupportedOperationException();
+		return payments;
 	}
 
 	public double getDebit() {
@@ -67,8 +84,7 @@ public class Ticket {
 	}
 
 	public String getID() {
-		// TODO - implement Ticket.getID
-		throw new UnsupportedOperationException();
+		return ID;
 	}
 
 	/**
@@ -76,8 +92,7 @@ public class Ticket {
 	 * @param ID
 	 */
 	public void setID(String ID) {
-		// TODO - implement Ticket.setID
-		throw new UnsupportedOperationException();
+		this.ID = ID;
 	}
 
 }

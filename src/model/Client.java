@@ -4,21 +4,18 @@ import java.util.*;
 
 public class Client extends Person {
 
-	Collection<Ticket> tickets;
+	ArrayList<Ticket> tickets;
 
 	public Client() {
-		// TODO - implement Client.Client
-		throw new UnsupportedOperationException();
+		tickets = new ArrayList<>();
 	}
 
 	public ArrayList<Ticket> getTickets() {
-		// TODO - implement Client.getTickets
-		throw new UnsupportedOperationException();
+		return tickets;
 	}
 
-	public void selllTicket() {
-		// TODO - implement Client.selllTicket
-		throw new UnsupportedOperationException();
+	public void sellTicket(Ticket t) {
+		tickets.add(t);
 	}
 
 }

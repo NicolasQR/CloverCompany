@@ -7,9 +7,9 @@ public class Payment {
 	private Date date;
 	private double value;
 
-	public Payment() {
-		// TODO - implement Payment.Payment
-		throw new UnsupportedOperationException();
+	public Payment(Date d, double v) {
+		date = d;
+		value = v;
 	}
 
 	public Date getDate() {
