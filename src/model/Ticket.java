@@ -56,7 +56,6 @@ public class Ticket {
 		boolean added = false;
 		for(int i = 0; i < payments.size(); i++) {
 			if(p.getDate().before(payments.get(i).getDate())) {
-				payments.add(i, payments.get(i));
 				payments.set(i, p);
 				added = true;
 			} else if(p.getDate().equals(payments.get(i).getDate())){

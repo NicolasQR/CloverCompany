@@ -14,13 +14,19 @@ public class CloverCompany {
 	
 	public final static String SAVE_PATH_FILE_OF_USERS = "data/users.ap2";
 	private String name;
-	
 	private User user;
+	
+	private ArrayList<Client> clients;
+	private ArrayList<Seller> sellers;
+	private ArrayList<Official> officials;
 	
 	public CloverCompany() {
 		user = new User(null);
 		user.setPassword("1234");
 		System.out.println(user.getPassword());
+		clients = new ArrayList<>();
+		sellers = new ArrayList<>();
+		officials = new ArrayList<>();
 	}
 
 	public User getUser() {
@@ -49,14 +55,44 @@ public class CloverCompany {
 	    return loaded;
 	}
 	
-	public void addOffitial() {
-		// TODO - implement CloverCompany.addOffitial
-		throw new UnsupportedOperationException();
+	//rectify
+	public boolean addOffitial(String ID, String name) { //Insert ordered with binary search, by ID order
+		boolean added = false;
+		Official newOfficial = new Official(ID, name);
+		if(officials.size() == 0) {
+			officials.add(newOfficial);
+		} else {
+			int i = 0;
+			int j = officials.size()-1;
+			int m = (i+j)/2;
+			
+			while(i <= j && added == false) {
+				if(newOfficial.getID().compareTo(officials.get(m).getID()) <= 0) {
+					officials.add(m, newOfficial);
+					j++;
+					added = true;
+				} else if(i == j) { 
+					officials.add(newOfficial);
+					j++;
+					added = true;
+				} else {
+					i = m;
+					m = (i+j)/2;
+				}
+				System.out.println("1");
+			}
+			
+		}
+		
+		return added;
 	}
 
+	public void removeOfficial(String ID) {
+		
+	}
+	
 	public void addSeller() {
-		// TODO - implement CloverCompany.addSeller
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void addClient() {
@@ -96,4 +132,30 @@ public class CloverCompany {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public ArrayList<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(ArrayList<Client> clients) {
+		this.clients = clients;
+	}
+
+	public ArrayList<Seller> getSellers() {
+		return sellers;
+	}
+
+	public void setSellers(ArrayList<Seller> sellers) {
+		this.sellers = sellers;
+	}
+
+	public ArrayList<Official> getOfficials() {
+		return officials;
+	}
+
+	public void setOfficials(ArrayList<Official> officials) {
+		this.officials = officials;
+	}
+	
+	
 }

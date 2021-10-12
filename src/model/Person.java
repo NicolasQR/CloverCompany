@@ -6,10 +6,16 @@ public class Person {
 	private String name;
 	private double cellPhoneNumber;
 	private String address;
+	
+	public Person(String ID, String name, double cellPhoneNumber, String address) {
+		this.ID = ID;
+		this.name = name;
+		this.cellPhoneNumber = cellPhoneNumber;
+		this.address = address;
+	}
 
 	public String getID() {
-		// TODO - implement Person.getID
-		throw new UnsupportedOperationException();
+		return ID;
 	}
 
 	/**
@@ -17,8 +23,7 @@ public class Person {
 	 * @param ID
 	 */
 	public void setID(String ID) {
-		// TODO - implement Person.setID
-		throw new UnsupportedOperationException();
+		this.ID = ID;
 	}
 
 	public String getName() {
@@ -34,7 +39,7 @@ public class Person {
 	}
 
 	public double getCellPhoneNumber() {
-		return this.cellPhoneNumber;
+		return cellPhoneNumber;
 	}
 
 	/**
@@ -46,7 +51,7 @@ public class Person {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	/**
@@ -56,10 +61,4 @@ public class Person {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	public Person() {
-		// TODO - implement Person.Person
-		throw new UnsupportedOperationException();
-	}
-
 }

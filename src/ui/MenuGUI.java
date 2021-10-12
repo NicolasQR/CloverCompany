@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MenuGUI {
 
@@ -27,9 +30,24 @@ public class MenuGUI {
 
     @FXML
     private BorderPane paneOverview;
+    
+    @FXML
+    private Button showClients;
 
     @FXML
-    void loadContents(ActionEvent event) throws IOException {
+    private Button showSellers;
+
+    @FXML
+    private Button showOfficial;
+    
+    private ClientsGUI clientsController;
+    
+    public MenuGUI() {
+    	clientsController = new ClientsGUI();
+    }
+    
+    @FXML
+    public void loadContents(ActionEvent event) throws IOException {
     	
     	if(event.getSource() == addClient) {
     		
@@ -54,5 +72,24 @@ public class MenuGUI {
     	}
     	
     }
-	
+    
+    @FXML
+    public void showClients(ActionEvent event) throws IOException {
+    	FXMLLoader open = new FXMLLoader(getClass().getResource("clientsView.fxml"));
+    	open.setController(clientsController);
+    	Parent root = open.load();
+    	
+    	paneContents.getChildren().clear();
+		paneContents.setCenter(root);
+    }
+
+    @FXML
+    public void showOfficial(ActionEvent event) {
+    	
+    }
+
+    @FXML
+    public void showSellers(ActionEvent event) {
+    	
+    }
 }
