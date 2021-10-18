@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class CloverCompany {
 
@@ -55,8 +56,8 @@ public class CloverCompany {
 	    return loaded;
 	}
 	
-	//rectify
-	public boolean addOffitial(String ID, String name) { //Insert ordered with binary search, by ID order
+	//Checked
+	public boolean addOffitial(long ID, String name) { //Insert official ordered with binary search, by ID order
 		boolean added = false;
 		Official newOfficial = new Official(ID, name);
 		if(officials.size() == 0) {
@@ -67,7 +68,7 @@ public class CloverCompany {
 			int m = (i+j)/2;
 			
 			while(i <= j && added == false) {
-				if(newOfficial.getID().compareTo(officials.get(m).getID()) <= 0) {
+				if(newOfficial.getID() < officials.get(m).getID()) {
 					officials.add(m, newOfficial);
 					j++;
 					added = true;
@@ -76,10 +77,9 @@ public class CloverCompany {
 					j++;
 					added = true;
 				} else {
-					i = m;
+					i = m+1;
 					m = (i+j)/2;
 				}
-				System.out.println("1");
 			}
 			
 		}
@@ -87,17 +87,92 @@ public class CloverCompany {
 		return added;
 	}
 
-	public void removeOfficial(String ID) {
+	public boolean removeOfficial(long ID) { //Remove Official with binary search
+		boolean removed = false;
+		if(officials.size() == 0) {
+			return removed;
+		} else {
+			int i = 0;
+			int j = officials.size()-1;
+			int m = (i+j)/2;
+			
+			while(i <= j && removed == false) {
+				if(ID == officials.get(m).getID()) {
+					officials.remove(m);
+					removed = true;
+				} else {
+					i = m+1;
+					m = (i+j)/2;
+				}
+			}
+			
+		}
 		
+		return removed;
 	}
 	
-	public void addSeller() {
+	public boolean addSeller(long ID, String name, double cellPhoneNumber, String address) { //Insert Seller ordered with binary search, by ID order
+		boolean added = false;
+		Seller newSeller = new Seller(ID, name, cellPhoneNumber, address);
+		if(officials.size() == 0) {
+			sellers.add(newSeller);
+		} else {
+			int i = 0;
+			int j = officials.size()-1;
+			int m = (i+j)/2;
+			
+			while(i <= j && added == false) {
+				if(newSeller.getID() < officials.get(m).getID()) {
+					sellers.add(m, newSeller);
+					j++;
+					added = true;
+				} else if(i == j) { 
+					sellers.add(newSeller);
+					j++;
+					added = true;
+				} else {
+					i = m+1;
+					m = (i+j)/2;
+				}
+			}
+			
+		}
 		
+		return added;
 	}
-
-	public void addClient() {
-		// TODO - implement CloverCompany.addClient
-		throw new UnsupportedOperationException();
+	
+	public boolean removeSeller() {
+		return false;
+	}
+	
+	public boolean addClient(long ID, String name, double cellPhoneNumber, String addres, String location) { //Insert Client ordered with binary search, by ID order.
+		boolean added = false;
+		Client newClient = new Client(ID, name, cellPhoneNumber, addres, location);
+		if(officials.size() == 0) {
+			clients.add(newClient);
+		} else {
+			int i = 0;
+			int j = officials.size()-1;
+			int m = (i+j)/2;
+			
+			while(i <= j && added == false) {
+				if(newClient.getID() < officials.get(m).getID()) {
+					clients.add(m, newClient);
+					j++;
+					added = true;
+				} else if(i == j) { 
+					clients.add(newClient);
+					j++;
+					added = true;
+				} else {
+					i = m+1;
+					m = (i+j)/2;
+				}
+			}
+			
+		}
+		
+		return added;
 	}
 
 	public void addTicket() {

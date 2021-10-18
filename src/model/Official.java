@@ -5,16 +5,16 @@ import java.util.*;
 public class Official {
 
 	ArrayList<Seller> sellers;
-	private String ID;
+	private long ID;
 	private String name;
 
-	public Official(String ID, String name) {
+	public Official(long ID, String name) {
 		this.ID = ID;
 		this.name = name;
 		sellers = new ArrayList<>();
 	}
 	
-	public String getID() {
+	public long getID() {
 		return ID;
 	}
 
@@ -22,7 +22,7 @@ public class Official {
 	 * 
 	 * @param ID
 	 */
-	public void setID(String ID) {
+	public void setID(long ID) {
 		this.ID = ID;
 	}
 

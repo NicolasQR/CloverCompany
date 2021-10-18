@@ -36,8 +36,7 @@ public class Main extends Application {
 		primaryStage.setTitle("Clover Company");
 		primaryStage.setResizable(false);
 		primaryStage.show();
-
+		
 	}
-
 }
 

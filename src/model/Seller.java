@@ -8,7 +8,7 @@ public class Seller extends Person {
 	
 	
 	
-	public Seller(String ID, String name, double cellPhoneNumber, String address) {
+	public Seller(long ID, String name, double cellPhoneNumber, String address) {
 		super(ID, name, cellPhoneNumber, address);
 		clients = new ArrayList<>();
 	}

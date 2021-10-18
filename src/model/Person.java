@@ -2,19 +2,19 @@ package model;
 
 public class Person {
 
-	private String ID;
+	private long ID;
 	private String name;
 	private double cellPhoneNumber;
 	private String address;
 	
-	public Person(String ID, String name, double cellPhoneNumber, String address) {
+	public Person(long ID, String name, double cellPhoneNumber, String address) {
 		this.ID = ID;
 		this.name = name;
 		this.cellPhoneNumber = cellPhoneNumber;
 		this.address = address;
 	}
 
-	public String getID() {
+	public long getID() {
 		return ID;
 	}
 
@@ -22,7 +22,7 @@ public class Person {
 	 * 
 	 * @param ID
 	 */
-	public void setID(String ID) {
+	public void setID(long ID) {
 		this.ID = ID;
 	}
 
